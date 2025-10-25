@@ -2,8 +2,11 @@
 
 Allows the moveWindow and handleIconState APIs
 
+#### This default permission set includes the following:
+
 - `allow-move-window`
-- `set-tray-icon-state`
+- `allow-move-window-constrained`
+- `allow-set-tray-icon-state`
 
 ## Permission Table
 
@@ -36,6 +39,32 @@ Enables the move_window command without any pre-configured scope.
 <td>
 
 Denies the move_window command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`positioner:allow-move-window-constrained`
+
+</td>
+<td>
+
+Enables the move_window_constrained command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`positioner:deny-move-window-constrained`
+
+</td>
+<td>
+
+Denies the move_window_constrained command without any pre-configured scope.
 
 </td>
 </tr>

@@ -34,28 +34,19 @@ tauri-plugin-updater = { git = "https://github.com/tauri-apps/plugins-workspace"
 
 You can install the JavaScript Guest bindings using your preferred JavaScript package manager:
 
-> Note: Since most JavaScript package managers are unable to install packages from git monorepos we provide read-only mirrors of each plugin. This makes installation option 2 more ergonomic to use.
-
 ```sh
 pnpm add @tauri-apps/plugin-updater
 # or
 npm add @tauri-apps/plugin-updater
 # or
 yarn add @tauri-apps/plugin-updater
-
-# alternatively with Git:
-pnpm add https://github.com/tauri-apps/tauri-plugin-updater#v2
-# or
-npm add https://github.com/tauri-apps/tauri-plugin-updater#v2
-# or
-yarn add https://github.com/tauri-apps/tauri-plugin-updater#v2
 ```
 
 ## Usage
 
 First you need to register the core plugin with Tauri:
 
-`src-tauri/src/main.rs`
+`src-tauri/src/lib.rs`
 
 ```rust
 fn main() {
@@ -76,11 +67,13 @@ Afterwards all the plugin's APIs are available through the JavaScript guest bind
 import { check } from '@tauri-apps/plugin-updater'
 import { relaunch } from '@tauri-apps/plugin-process'
 const update = await check()
-if (update?.available) {
+if (update) {
   await update.downloadAndInstall()
   await relaunch()
 }
 ```
+
+Note that for these APIs to work you have to properly configure the updater first and generate updater artifacts. Please refer to the [guide on our website](https://v2.tauri.app/plugin/updater/) for this.
 
 ## Contributing
 

@@ -41,20 +41,13 @@ pnpm add @tauri-apps/plugin-stronghold
 npm add @tauri-apps/plugin-stronghold
 # or
 yarn add @tauri-apps/plugin-stronghold
-
-# alternatively with Git:
-pnpm add https://github.com/tauri-apps/tauri-plugin-stronghold#v2
-# or
-npm add https://github.com/tauri-apps/tauri-plugin-stronghold#v2
-# or
-yarn add https://github.com/tauri-apps/tauri-plugin-stronghold#v2
 ```
 
 ## Usage
 
 First you need to register the core plugin with Tauri:
 
-`src-tauri/src/main.rs`
+`src-tauri/src/lib.rs`
 
 ```rust
 fn main() {

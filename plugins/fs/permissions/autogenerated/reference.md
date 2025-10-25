@@ -24,7 +24,7 @@ This default permission set prevents access to critical components
 of the Tauri application by default.
 On Windows the webview data folder access is denied.
 
-
+#### This default permission set includes the following:
 
 - `create-app-specific-dirs`
 - `read-app-specific-dirs-recursive`
@@ -3409,6 +3409,32 @@ Denies the seek command without any pre-configured scope.
 <tr>
 <td>
 
+`fs:allow-size`
+
+</td>
+<td>
+
+Enables the size command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fs:deny-size`
+
+</td>
+<td>
+
+Denies the size command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
 `fs:allow-stat`
 
 </td>
@@ -3721,6 +3747,28 @@ This enables all index or metadata related commands without any pre-configured a
 <td>
 
 An empty permission you can use to modify the global scope.
+
+## Example
+
+```json
+{
+  "identifier": "read-documents",
+  "windows": ["main"],
+  "permissions": [
+    "fs:allow-read",
+    {
+      "identifier": "fs:scope",
+      "allow": [
+        "$APPDATA/documents/**/*"
+      ],
+      "deny": [
+        "$APPDATA/documents/secret.txt"
+      ]
+    }
+  ]
+}
+```
+
 
 </td>
 </tr>

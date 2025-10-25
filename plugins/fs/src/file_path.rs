@@ -53,10 +53,7 @@ impl FilePath {
     #[inline]
     pub fn into_path(self) -> Result<PathBuf> {
         match self {
-            Self::Url(url) => url
-                .to_file_path()
-                .map(PathBuf::from)
-                .map_err(|_| Error::InvalidPathUrl),
+            Self::Url(url) => url.to_file_path().map_err(|_| Error::InvalidPathUrl),
             Self::Path(p) => Ok(p),
         }
     }
@@ -91,10 +88,7 @@ impl SafeFilePath {
     #[inline]
     pub fn into_path(self) -> Result<PathBuf> {
         match self {
-            Self::Url(url) => url
-                .to_file_path()
-                .map(PathBuf::from)
-                .map_err(|_| Error::InvalidPathUrl),
+            Self::Url(url) => url.to_file_path().map_err(|_| Error::InvalidPathUrl),
             Self::Path(p) => Ok(p.as_ref().to_owned()),
         }
     }
@@ -138,7 +132,7 @@ impl<'de> serde::Deserialize<'de> for FilePath {
     {
         struct FilePathVisitor;
 
-        impl<'de> serde::de::Visitor<'de> for FilePathVisitor {
+        impl serde::de::Visitor<'_> for FilePathVisitor {
             type Value = FilePath;
 
             fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
@@ -169,7 +163,7 @@ impl<'de> serde::Deserialize<'de> for SafeFilePath {
     {
         struct SafeFilePathVisitor;
 
-        impl<'de> serde::de::Visitor<'de> for SafeFilePathVisitor {
+        impl serde::de::Visitor<'_> for SafeFilePathVisitor {
             type Value = SafeFilePath;
 
             fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {

@@ -1,5 +1,34 @@
 # Changelog
 
+## \[2.3.1]
+
+- [`b7292030`](https://github.com/tauri-apps/plugins-workspace/commit/b7292030594daa04e78979214478031241b6e38e) ([#2838](https://github.com/tauri-apps/plugins-workspace/pull/2838) by [@velocitysystems](https://github.com/tauri-apps/plugins-workspace/../../velocitysystems)) Fix `download` and `upload` locks main thread on Android.
+  Use Tokio to spawn task when invoking commands.
+
+## \[2.3.0]
+
+- [`f209b2f2`](https://github.com/tauri-apps/plugins-workspace/commit/f209b2f23cb29133c97ad5961fb46ef794dbe063) ([#2804](https://github.com/tauri-apps/plugins-workspace/pull/2804) by [@renovate](https://github.com/tauri-apps/plugins-workspace/../../renovate)) Updated tauri to 2.6
+
+## \[2.2.2]
+
+- [`f634e524`](https://github.com/tauri-apps/plugins-workspace/commit/f634e5248ebe428f8305a59f74c13fc15147fb8e) This is an "empty" release to update the plugins' source files on crates.io and docs.rs. This should fix docs.rs build failures for projects using tauri plugins as dependencies.
+
+## \[2.2.1]
+
+- [`ca7395a5`](https://github.com/tauri-apps/plugins-workspace/commit/ca7395a5ce971cbac25fb54285056edf3dd84e1f) ([#2378](https://github.com/tauri-apps/plugins-workspace/pull/2378) by [@FabianLars](https://github.com/tauri-apps/plugins-workspace/../../FabianLars)) the `rustls-tls` feature is now enabled by default
+
+## \[2.2.1]
+
+- [`05c62d73`](https://github.com/tauri-apps/plugins-workspace/commit/05c62d731fa48fd06b8cb3694a962d8cb0db8619) ([#1523](https://github.com/tauri-apps/plugins-workspace/pull/1523) by [@enri90](https://github.com/tauri-apps/plugins-workspace/../../enri90)) Added post request on download function
+
+## \[2.2.0]
+
+- [`5dadd205`](https://github.com/tauri-apps/plugins-workspace/commit/5dadd205f5596c9607457dd015a2f9d7fc48a2db) ([#2033](https://github.com/tauri-apps/plugins-workspace/pull/2033) by [@514sid](https://github.com/tauri-apps/plugins-workspace/../../514sid)) Added a new field `progressTotal` to track the total amount of data transferred during the upload/download process.
+
+## \[2.1.0]
+
+- [`87cc5852`](https://github.com/tauri-apps/plugins-workspace/commit/87cc58527d769960427a2f46bb10532f5dcf7ace) ([#1797](https://github.com/tauri-apps/plugins-workspace/pull/1797) by [@VirtualPirate](https://github.com/tauri-apps/plugins-workspace/../../VirtualPirate)) Added feature for calculating `transfer_speed` during file uploads and downloads
+
 ## \[2.0.1]
 
 - [`a1a82208`](https://github.com/tauri-apps/plugins-workspace/commit/a1a82208ed4ab87f83310be0dc95428aec9ab241) ([#1873](https://github.com/tauri-apps/plugins-workspace/pull/1873) by [@lucasfernog](https://github.com/tauri-apps/plugins-workspace/../../lucasfernog)) Downgrade MSRV to 1.77.2 to support Windows 7.
@@ -94,15 +123,3 @@
 ## \[2.0.0-alpha.0]
 
 - [`717ae67`](https://github.com/tauri-apps/plugins-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  te to alpha.11.
-
-## \[2.0.0-alpha.0]
-
-- [`717ae67`](https://github.com/tauri-apps/plugins-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  17ae67\`]\(https://github.com/tauri-apps/plugins-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  67\`]\(https://github.com/tauri-apps/plugins-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  s-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  67\`]\(https://github.com/tauri-apps/plugins-workspace/commit/717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  717ae670978feb4492fac1f295998b93f2b9347f)([#371](https://github.com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!
-  com/tauri-apps/plugins-workspace/pull/371)) First v2 alpha release!

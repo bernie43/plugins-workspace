@@ -11,8 +11,9 @@ use tauri::{
     Manager, Runtime, State, Window,
 };
 
+#[allow(deprecated)]
+use crate::open::Program;
 use crate::{
-    open::Program,
     process::{CommandEvent, TerminatedPayload},
     scope::ExecuteArgs,
     Shell,
@@ -114,7 +115,12 @@ fn prepare_cmd<R: Runtime>(
     let mut command = if options.sidecar {
         let program = PathBuf::from(program);
         let program_as_string = program.display().to_string();
-        let program_no_ext_as_string = program.with_extension("").display().to_string();
+        let has_extension = program.extension().is_some_and(|ext| ext == "exe");
+        let program_no_ext_as_string = if has_extension {
+            program.with_extension("").display().to_string()
+        } else {
+            program_as_string.clone()
+        };
         let configured_sidecar = window
             .config()
             .bundle
@@ -302,6 +308,7 @@ pub fn kill<R: Runtime>(
     Ok(())
 }
 
+#[allow(deprecated)]
 #[tauri::command]
 pub async fn open<R: Runtime>(
     _window: Window<R>,
@@ -309,5 +316,5 @@ pub async fn open<R: Runtime>(
     path: String,
     with: Option<Program>,
 ) -> crate::Result<()> {
-    shell.open(path, with)
+    crate::open::open(Some(&shell.open_scope), path, with)
 }
