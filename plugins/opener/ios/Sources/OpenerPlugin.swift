@@ -19,19 +19,7 @@ class OpenerPlugin: Plugin {
     do {
       let args = try invoke.parseArgs(OpenArgs.self)
       if let url = URL(string: args.url) {
-        if args.with == "inAppBrowser" {
-          DispatchQueue.main.async {
-            let safariVC = SFSafariViewController(url: url)
-            self.manager.viewController?.present(safariVC, animated: true)
-          }
-        } else {
-          if #available(iOS 10, *) {
-            UIApplication.shared.open(url, options: [:])
-          } else {
-            UIApplication.shared.openURL(url)
-          }
-        }
-
+        UIApplication.shared.open(url, options: [:])
       }
       invoke.resolve()
     } catch {
